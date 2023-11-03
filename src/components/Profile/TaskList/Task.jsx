@@ -32,13 +32,6 @@ const Task = ({ item, index }) => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                //deleteTask(taskId)
-                //setReload(!reload);
-                // Swal.fire(
-                //     'Deleted!',
-                //     'Your file has been deleted.',
-                //     'success'
-                // )
                 async function deleteTask (){
                     const res = await axiosInstance.delete(`/delete-task/${taskId}`);
                     const data = res.data;

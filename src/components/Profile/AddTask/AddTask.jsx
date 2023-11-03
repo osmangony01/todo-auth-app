@@ -3,9 +3,11 @@ import axiosInstance from "../../../routes/axiosInstance";
 import { AuthContext } from "../../../provider/AuthProvider";
 import { useContext } from "react";
 import Swal from "sweetalert2";
+import { TaskContextAPI } from "../Profile";
 
 const AddTask = ({ status, handleAddModal }) => {
     const { user } = useContext(AuthContext);
+    const { reload, setReload } = useContext(TaskContextAPI);
 
     const modal = status;
     const handleModal = () => {
@@ -18,6 +20,7 @@ const AddTask = ({ status, handleAddModal }) => {
         const data = res.data;
         console.log(data);
         if (data.ok) {
+            setReload(!reload);
             Swal.fire({
                 position: 'center',
                 icon: 'success',

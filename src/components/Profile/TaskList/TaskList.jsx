@@ -20,7 +20,7 @@ const TaskList = () => {
     }, [tasks])
     console.log(allTask)
     return (
-        <div className=' w-full lg:w-[1000px] mx-auto border px-12 py-6 bg-white mt-3 h-full'>
+        <div className=' w-full lg:w-[1000px] mx-auto border px-12 pt-6 pb-10 bg-white mt-3 h-full'>
             <h1 className='text-2xl text-center pb-8 font-semibold'>Welcome to Task Manager</h1>
             <div>
                 <button onClick={() => handleAddModal(true)} className='px-4 py-1.5 bg-blue-500 rounded my-4 font-semibold text-white hover:bg-blue-700'>Add Task + </button>
