@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from './Navbar/Navbar';
+import TaskList from './TaskList/TaskList';
 
 const Profile = () => {
 
@@ -7,7 +8,7 @@ const Profile = () => {
         <div>
             <Navbar></Navbar>
             <div>
-                welcome 
+                <TaskList></TaskList>
             </div>
         </div>
     );

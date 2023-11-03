@@ -13,3 +13,7 @@ body{
 .social-login-btn {
   @apply w-full py-2 mt-2 bg-white text-base text-black rounded flex justify-center items-center gap-2
 }
+
+.task-input{
+  @apply w-full  box-border py-1.5 px-3 rounded  border border-slate-300 outline-none
+}
