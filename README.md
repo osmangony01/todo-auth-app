@@ -4,8 +4,8 @@
 - User Authentication system with firebase
 - Perform CURD Operation(Create, Update, Read, Delete)
 
-**Tecnolog Used:** RactJS, NodeJS, ExpressJS, MongoDB, Firebase, Axios, TailwindCSS
+**Technology Used:** ReactJS, NodeJS, ExpressJS, MongoDB, Firebase, Axios, TailwindCSS
 
-Live Site : https://tiny-crostata-c32195.netlify.app/
+**Live Site :** https://tiny-crostata-c32195.netlify.app/
 
-Backend Code Link : https://github.com/osmangony01/todo-app-server 
+**Backend Code Link :** https://github.com/osmangony01/todo-app-server 
