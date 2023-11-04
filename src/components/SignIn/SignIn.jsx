@@ -4,7 +4,7 @@ import { useContext, useState } from 'react';
 import { FaEye, FaEyeSlash, } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
-import { FcGoogle } from "react-icons/fc";
+
 
 
 const SignIn = () => {
@@ -12,7 +12,7 @@ const SignIn = () => {
     const [passShow, setPassShow] = useState(true);
     const [error, setError] = useState("");
 
-    const { signIn, signInWithGoogle } = useContext(AuthContext);
+    const { signIn } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const handleLogin = (e) => {
@@ -39,31 +39,6 @@ const SignIn = () => {
         // console.log(email, password);
     }
 
-    const handleGoogleSignIn = () => {
-        signInWithGoogle()
-            .then(result => {
-                const loggedUser = result.user;
-                //console.log(loggedUser);
-                const savedUser = { name: loggedUser.displayName, email: loggedUser.email, role: 'user', photo:loggedUser.photoURL };
-                fetch(`http://localhost:5005/users`, {
-                    method: "POST",
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify(savedUser)
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data.insertedId) {
-                            navigate("/profile", { replace: true });
-                        }
-                    })
-            })
-            .catch(error => {
-                setError("Incorrect Email or Password!");
-                //console.log(error.message);
-            })
-    }
 
     return (
         <div className='pt-8 pb-16'>
@@ -85,9 +60,6 @@ const SignIn = () => {
                     </div>
                     <button type="submit" className='w-full py-2 mt-5 bg-white border border-purple-400 hover:bg-purple-800 text-base text-black hover:text-white rounded'>Sign In</button>
                     <p className='mt-2 text-sm  text-slate-600 text-end'>Don't have an account? <Link to="/sign-up" className='text-blue-700 font-semibold'>Sign Up</Link></p>
-                    <div className='mt-4'>
-                        <button type="submit" onClick={handleGoogleSignIn} className='social-login-btn hover:border-blue-600 hover:border'><FcGoogle size={25}></FcGoogle><span className='text-[15px]'>Sign in with Google</span></button>
-                    </div>
                 </form>
             </div>
         </div>

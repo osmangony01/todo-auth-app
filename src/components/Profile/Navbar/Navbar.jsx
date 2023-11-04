@@ -15,7 +15,7 @@ const Navbar = () => {
             .catch(error => console.log(error.message))
     }
 
-    console.log(user)
+   // console.log(user)
 
     return (
         <div className='flex justify-between items-center py-2 px-8 bg-white '>
@@ -27,7 +27,7 @@ const Navbar = () => {
                 <div>
                     <label className="btn btn-ghost btn-circle avatar m-0">
                         <div className="w-10 rounded-full">
-                            {user?.photoURL ? <img src={user?.photoURL} alt="" className='bg-slate-200' title={user?.displayName} />
+                            {user?.photoURL ? <img src={user?.photoURL} alt="" className='bg-slate-200 rounded-full' title={user?.displayName} />
                                 : <span className='first-line:' title={user?.displayName}><FaUserCircle size={40}></FaUserCircle></span>}
                         </div>
                     </label>

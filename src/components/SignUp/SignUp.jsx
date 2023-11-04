@@ -35,12 +35,6 @@ const SignUp = () => {
                 //console.log(CreateUser);
 
                 updateUserData(result.user, name, photo_url)
-                    // .then(() => {
-
-                    // })
-                    // .catch(error => {
-                    //     console.log(error.message);
-                    // })
                     .then(() => {
                         //console.log('user name updated ...');
                         const savedUser = { name: name, email: email, role: 'user', photo: photo_url };
@@ -55,9 +49,9 @@ const SignUp = () => {
                             .then(data => {
                                 if (data.insertedId) {
                                     Swal.fire({
-                                        position: 'top-end',
+                                        position: 'center',
                                         icon: 'success',
-                                        title: 'Registration successful',
+                                        title: 'Registration is successful',
                                         showConfirmButton: false,
                                         timer: 1500
                                     })
@@ -69,7 +63,6 @@ const SignUp = () => {
                         console.log(error.message);
                     })
 
-                // addUser(userInfo);
                 setLoading(false);
                 form.reset();
                 navigate("/profile", { replace: true });
@@ -90,12 +83,10 @@ const SignUp = () => {
                     <div className='mb-3'>
                         <label htmlFor="" className='block  mb-1.5'>Full Name</label>
                         <input type="text" name="name" className='input-control hover:border-blue-400 focus:border-blue-400' placeholder='Enter your name' required/>
-
                     </div>
                     <div className='mb-3'>
                         <label htmlFor="" className='block mb-1.5'>Email</label>
                         <input type="email" name="email" className='input-control hover:border-blue-400 focus:border-blue-400' placeholder='Enter your email' required/>
-
                     </div>
                     <div className='mb-3'>
                         <label htmlFor="" className='block  mb-1.5'>Password</label>

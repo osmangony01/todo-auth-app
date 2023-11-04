@@ -4,6 +4,7 @@ import SignUp from "../components/SignUp/SignUp";
 import SignIn from "../components/SignIn/SignIn";
 import Profile from "../components/Profile/Profile";
 import PrivateRoute from "./PrivateRoute";
+import ErrorRoute from "./ErrorRoute";
 
 const router = createBrowserRouter([
     {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
     {
         path: "/profile",
         element: <PrivateRoute><Profile></Profile></PrivateRoute>
+    },
+    {
+        path: "*",
+        element:<ErrorRoute></ErrorRoute>
     }
 ]);
 

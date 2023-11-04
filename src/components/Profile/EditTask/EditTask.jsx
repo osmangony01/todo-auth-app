@@ -14,12 +14,11 @@ const EditTask = ({ status, handleEditModal, item }) => {
     const [priority, setPriority] = useState(item.priority)
     const [description, setDescription] = useState(item.description)
     
-
+    //  // to handle edit modal pop-up
     const handleModal = () => {
         handleEditModal(false)
     }
-
-
+    
     // handle to update task
     const updateTask = async (taskData) => {
         const res = await axiosInstance.patch('/update-task',{ ...taskData });
@@ -30,25 +29,19 @@ const EditTask = ({ status, handleEditModal, item }) => {
             Swal.fire({
                 position: 'center',
                 icon: 'success',
-                title: 'Added Task is Successful',
+                title: 'Task is updated successfully',
                 showConfirmButton: false,
                 timer: 1500
             })
         }
     }
 
+    // handle submit for update task
     const handleSubmit = (e) => {
         e.preventDefault();
 
-    
         const taskData = {id:item._id, taskTitle, dueDate, priority, description };
-        //console.log(taskData)
         updateTask(taskData)
-    
-        setTaskTitle('');
-        setDueDate('');
-        setPriority('');
-        setDescription('');
         handleEditModal(false);
     }
 
@@ -60,7 +53,6 @@ const EditTask = ({ status, handleEditModal, item }) => {
                         <span onClick={handleModal} className='absolute top-[15px] right-[15px] hover:bg-slate-200 p-2 rounded-full'><RxCross1 color='' size={20}></RxCross1></span>
                         <div className="p-10">
                             <form onSubmit={handleSubmit}>
-
                                 <h1 className='text-center font-semibold text-2xl pb-4'>Update Task</h1>
                                 <div className='flex flex-col mt-3'>
                                     <label className='pb-1'>Title</label>
@@ -79,12 +71,10 @@ const EditTask = ({ status, handleEditModal, item }) => {
                                         <option value="High" >High</option>
                                     </select>
                                 </div>
-
                                 <div className='flex flex-col mt-3'>
                                     <label className='pb-1'>Description</label>
                                     <textarea onChange={(e)=>setDescription(e.target.value)} className="task-input placeholder:text-sm hover:border-[#5e3cf7fb] hover:border-2" rows={3} placeholder="Type description" name="description" value={description}></textarea>
                                 </div>
-
                                 <div className='mt-4'> <button type='submit' className='text-right px-4 py-1.5 bg-[#5e3cf7fb] text-white rounded shadow-md hover:bg-[#3d3bbefb]'>Update Task</button></div>
                             </form>
                         </div>

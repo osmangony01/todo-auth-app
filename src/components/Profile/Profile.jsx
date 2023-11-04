@@ -11,6 +11,7 @@ const Profile = () => {
     const [tasks, setTasks] = useState([])
     const [reload, setReload] = useState(false);
 
+    // fetch data from database
     const fetchTaskData = async () => {
         if (user && user.email) {
             const email = user.email;
@@ -35,7 +36,7 @@ const Profile = () => {
         setTasks,
         setReload
     }
-    console.log(tasks)
+    //console.log(tasks)
 
     return (
         <div>
@@ -45,7 +46,6 @@ const Profile = () => {
                     <TaskList></TaskList>
                 </div>
             </TaskContextAPI.Provider>
-
         </div>
     );
 };
